@@ -16,7 +16,8 @@ class App extends React.Component {
         super(props);
         
         // The only time I can direct assign value to state
-        this.state = { lat: null, long: null };
+        // we have to assign state not "anything" (MyState etc.)
+        this.state = { lat: null, long: null, errorMessage: '' };
 
 
         window.navigator.geolocation.getCurrentPosition(
@@ -25,14 +26,22 @@ class App extends React.Component {
                 // the only way to update a State !( setState )!
                 this.setState({ lat: position.coords.latitude, long: position.coords.longitude })
             },
-            err => console.log(err));
+            err => {
+                this.setState({ errorMessage: err.message})
+            }
+        );
     }
 
     // I have to render something after class
     render() {
-        
-        return <div>Latitude: {this.state.lat} Longtitude: {this.state.long}</div>;
-    }
+        if (this.state.errorMessage && !this.state.lat){
+            return <div>Error: {this.state.errorMessage}</div>
+        }
+        if (!this.state.errorMessage && this.state.lat){
+            return <div>Latitude: {this.state.lat} <br/> Longtitude {this.state.long}</div>
+        }
+        return <div>Loading!</div>
+    };
 }
 
 const Comments = () => {
