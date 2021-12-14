@@ -24,9 +24,9 @@ const Hello_world = () => {
 const Comments = () => {
     return (
         <div className="ui container comments">
-            <CommentDetail />
-            <CommentDetail />
-            <CommentDetail />
+            <CommentDetail author="Sam" text="Wow" time="Yesterday"/>
+            <CommentDetail author="Alex" text="Great one" time="Month ago" />
+            <CommentDetail author="Albert" text="Nice" time="Today"/>
         </div>
     );
 };
