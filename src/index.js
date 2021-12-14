@@ -14,10 +14,15 @@ class App extends React.Component {
     constructor(props) {
         // super cuz app extends React.Component so I have something and I am overriding that. I have to call it.
         super(props);
-
+        
+        // The only time I can direct assign value to state
         this.state = { lat: null };
+
+
         window.navigator.geolocation.getCurrentPosition(
             position => {
+
+                // the only way to update a State !( setState )!
                 this.setState({ lat: position.coords.latitude })
             },
             err => console.log(err));
