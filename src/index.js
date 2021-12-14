@@ -10,7 +10,7 @@ import ApprovalCard from './ApprovalCard';
 const Hello_world = () => {
     return (
         <div>
-            <label class="label" for='name'>
+            <label className="label" htmlFor='name'>
                 Enter name
             </label>
             <input id='name' type='text' />
@@ -26,25 +26,31 @@ const Hello_world = () => {
 const Comments = () => {
     return (
         <div className="ui container comments">
-            <ApprovalCard />
-            <CommentDetail 
-                author="Sam"
-                text="Wow" 
-                time="Yesterday" 
-                avatar={faker.image.avatar()}
-                />
+            <ApprovalCard>
+                <CommentDetail 
+                    author="Sam"
+                    text="Wow" 
+                    time="Yesterday" 
+                    avatar={faker.image.avatar()}
+                    />
+            </ApprovalCard>
+        
+        <ApprovalCard>
             <CommentDetail 
                 author="Alex" 
                 text="Great one" 
                 time="Month ago" 
                 avatar={faker.image.avatar()}
                 />
+        </ApprovalCard>
+        <ApprovalCard>
             <CommentDetail 
                 author="Albert" 
                 text="Nice" 
                 time="Today"
                 avatar={faker.image.avatar()}
                 />
+            </ApprovalCard>
         </div>
     );
 };
