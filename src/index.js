@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CommentDetail from './CommentDetail';
-
+import faker from 'faker';
 
 // Create a react component
 const Hello_world = () => {
@@ -24,9 +24,24 @@ const Hello_world = () => {
 const Comments = () => {
     return (
         <div className="ui container comments">
-            <CommentDetail author="Sam" text="Wow" time="Yesterday"/>
-            <CommentDetail author="Alex" text="Great one" time="Month ago" />
-            <CommentDetail author="Albert" text="Nice" time="Today"/>
+            <CommentDetail 
+                author="Sam"
+                text="Wow" 
+                time="Yesterday" 
+                avatar={faker.image.avatar()}
+                />
+            <CommentDetail 
+                author="Alex" 
+                text="Great one" 
+                time="Month ago" 
+                avatar={faker.image.avatar()}
+                />
+            <CommentDetail 
+                author="Albert" 
+                text="Nice" 
+                time="Today"
+                avatar={faker.image.avatar()}
+                />
         </div>
     );
 };
