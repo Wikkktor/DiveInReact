@@ -4,24 +4,30 @@ import ReactDOM from 'react-dom';
 import CommentDetail from './CommentDetail';
 import faker from 'faker';
 import ApprovalCard from './ApprovalCard';
+import SeasonDisplay from './SeasonDisplay';
 
 
 // Create a react component
-const Hello_world = () => {
-    return (
-        <div>
-            <label className="label" htmlFor='name'>
-                Enter name
-            </label>
-            <input id='name' type='text' />
-            <button style={{ backgroundColor: "blue", color: "white"}}> Submit </button>
-            <br></br>
-            <h2>Hi There</h2>
-        </div>
-        
-        
-    )
-};
+
+class App extends React.Component {
+    // The very first function that is called before everything else
+    constructor(props) {
+        // super cuz app extends React.Component so I have something and I am overriding that. I have to call it.
+        super(props);
+
+        this.state = { lat: null };
+    }
+
+    // I have to render something after class
+    render() {
+        window.navigator.geolocation.getCurrentPosition(
+            position => console.log(position),
+            err => console.log(err)
+        );
+
+        return <div>Latitude: </div>;
+    }
+}
 
 const Comments = () => {
     return (
@@ -54,11 +60,14 @@ const Comments = () => {
                 avatar={faker.image.avatar()}
                 />
             </ApprovalCard>
+            <SeasonDisplay/>
         </div>
     );
 };
 
+
 // Take the react component and show it on the screen
-ReactDOM.render(<Hello_world />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector('#root'));
 ReactDOM.render(<Comments />, document.querySelector('#comments'));
+
 
