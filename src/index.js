@@ -27,14 +27,17 @@ const Comments = () => {
     return (
         <div className="ui container comments">
             <ApprovalCard>
-                <CommentDetail 
-                    author="Sam"
-                    text="Wow" 
-                    time="Yesterday" 
-                    avatar={faker.image.avatar()}
-                    />
+                <h2>Warning</h2>
+                Are you sure you want to do this?
             </ApprovalCard>
-        
+        <ApprovalCard>
+            <CommentDetail 
+                author="Sam"
+                text="Wow" 
+                time="Yesterday" 
+                avatar={faker.image.avatar()}
+                />
+        </ApprovalCard>
         <ApprovalCard>
             <CommentDetail 
                 author="Alex" 
