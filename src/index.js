@@ -13,26 +13,13 @@ import Spinner from './Spinner';
 class App extends React.Component {
     state = { lat: null, long: null, errorMessage: ''};
 
-
-    componentDidMount() {
-        
-    }
-
-    componentDidUpdate() {
-        
-    }
-
-
     componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
             position =>  this.setState({ lat: position.coords.latitude, long: position.coords.longitude }),
             err => this.setState({ errorMessage: err.message})
         );
     }
-
-
-    // I have to render something after class
-    render() {
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat){
             return <div>Error: {this.state.errorMessage}</div>
         }
@@ -41,6 +28,16 @@ class App extends React.Component {
         }
         return <Spinner message="Allow your location"/>
     };
+    
+
+    // I have to render something after class
+    render() {
+        return (
+            <div className="border red">
+                {this.renderContent()}
+            </div>
+        )
+    }
 }
 
 const Comments = () => {
