@@ -73,7 +73,6 @@ const Comments = () => {
                 avatar={faker.image.avatar()}
                 />
             </ApprovalCard>
-            <SeasonDisplay/>
         </div>
     );
 };
