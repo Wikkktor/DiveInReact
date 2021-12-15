@@ -5,6 +5,7 @@ import CommentDetail from './CommentDetail';
 import faker from 'faker';
 import ApprovalCard from './ApprovalCard';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 
 // Create a react component
@@ -38,7 +39,7 @@ class App extends React.Component {
         if (!this.state.errorMessage && this.state.lat){
             return <SeasonDisplay lat={this.state.lat} />
         }
-        return <div>Loading!</div>
+        return <Spinner message="Allow your location"/>
     };
 }
 
