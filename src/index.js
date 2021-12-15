@@ -10,24 +10,15 @@ import SeasonDisplay from './SeasonDisplay';
 // Create a react component
 
 class App extends React.Component {
-    // // The very first function that is called before everything else
-    // constructor(props) {
-    //     // super cuz app extends React.Component so I have something and I am overriding that. I have to call it.
-    //     super(props);
-        
-    //     // The only time I can direct assign value to state
-    //     // we have to assign state not "anything" (MyState etc.)
-    //     this.state = { lat: null, long: null, errorMessage: '' };
-    // }
     state = { lat: null, long: null, errorMessage: ''};
 
 
     componentDidMount() {
-        console.log("My component was rendered to the screen")
+        
     }
 
     componentDidUpdate() {
-        console.log("My component was just updated - it RErendered")
+        
     }
 
 
@@ -45,7 +36,7 @@ class App extends React.Component {
             return <div>Error: {this.state.errorMessage}</div>
         }
         if (!this.state.errorMessage && this.state.lat){
-            return <div>Latitude: {this.state.lat} <br/> Longtitude {this.state.long}</div>
+            return <SeasonDisplay lat={this.state.lat} />
         }
         return <div>Loading!</div>
     };
