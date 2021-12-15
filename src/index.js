@@ -10,15 +10,16 @@ import SeasonDisplay from './SeasonDisplay';
 // Create a react component
 
 class App extends React.Component {
-    // The very first function that is called before everything else
-    constructor(props) {
-        // super cuz app extends React.Component so I have something and I am overriding that. I have to call it.
-        super(props);
+    // // The very first function that is called before everything else
+    // constructor(props) {
+    //     // super cuz app extends React.Component so I have something and I am overriding that. I have to call it.
+    //     super(props);
         
-        // The only time I can direct assign value to state
-        // we have to assign state not "anything" (MyState etc.)
-        this.state = { lat: null, long: null, errorMessage: '' };
-    }
+    //     // The only time I can direct assign value to state
+    //     // we have to assign state not "anything" (MyState etc.)
+    //     this.state = { lat: null, long: null, errorMessage: '' };
+    // }
+    state = { lat: null, long: null, errorMessage: ''};
 
 
     componentDidMount() {
