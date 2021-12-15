@@ -18,18 +18,6 @@ class App extends React.Component {
         // The only time I can direct assign value to state
         // we have to assign state not "anything" (MyState etc.)
         this.state = { lat: null, long: null, errorMessage: '' };
-
-
-        window.navigator.geolocation.getCurrentPosition(
-            position => {
-
-                // the only way to update a State !( setState )!
-                this.setState({ lat: position.coords.latitude, long: position.coords.longitude })
-            },
-            err => {
-                this.setState({ errorMessage: err.message})
-            }
-        );
     }
 
 
@@ -39,6 +27,14 @@ class App extends React.Component {
 
     componentDidUpdate() {
         console.log("My component was just updated - it RErendered")
+    }
+
+
+    componentDidMount() {
+        window.navigator.geolocation.getCurrentPosition(
+            position =>  this.setState({ lat: position.coords.latitude, long: position.coords.longitude }),
+            err => this.setState({ errorMessage: err.message})
+        );
     }
 
 
